@@ -14,8 +14,8 @@ struct order
 int count1=0,count2=0,waiting=0;
 int order()
 {
-    char option,plate_c[50],plate_n[50],plate_p[50];
-    int n,code,quantity,size,inch,pieces,amount;
+    char option;
+    int n,code,quantity,amount;
     printf("please enter your name:");
     scanf("%s",&p[count1].name);
     p[count1].order_num=10000+count1;
@@ -34,20 +34,21 @@ int order()
     p[count1].food_num=n;
     p[count1].cost=0;
     p[count1].food_num=0;
-    label:
     printf("How many you want to order:");
     scanf("%d",&n);
     for(int i=1;i<=n;i++)
     {
+        label:
         printf("Enter choosen item code:");
         scanf("%d",&code);
         switch(code)
         {
             case 11:
             {
-                printf("Enter size of burger(200/300)gm:");
-                scanf("%d",&size);
-                if(size==200)
+                printf("Enter size of burger(1.200  2.300)gm:");
+                int i;
+                scanf("%d",&i);
+                if(i==1)
                 {
                     printf("200gm of BURGER\n");
                     printf("Please Enter the quantity:");
@@ -55,7 +56,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*130);
                 }
-                else if(size==300)
+                else if(i==2)
                 {
                     printf("300gm of BURGER\n");
                     printf("Please Enter the quantity:");
@@ -63,13 +64,21 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*180);
                 }
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 12:
             {
-                printf("How many inches of Chicken Pizza(12/14/16)");
-                scanf("%d",&inch);
-                if(inch==12)
+                printf("How many inches of Chicken Pizza(1.12  2.14  3.16)");
+                int i;
+                scanf("%d",&i);
+                if(i==1)
                 {
                     printf("12 inches CHICKEN PIZZA\n");
                     printf("Please Enter the quantity:");
@@ -77,7 +86,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*750);
                 }
-                else if(inch==14)
+                else if(i==2)
                 {
                     printf("14 inches CHICKEN PIZZA\n");
                     printf("Please Enter the quantity:");
@@ -85,7 +94,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*975);
                 }
-                else if(inch==16)
+                else if(i==3)
                 {
                     printf("16 inches CHICKEN PIZZA\n");
                     printf("Please Enter the quantity:");
@@ -93,13 +102,21 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*1250);
                 }
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 13:
             {
-                printf("How many Pieces of Fried Chicken(1/4/10)::");
-                scanf("%d",&pieces);
-                if(pieces==1)
+                printf("How many Pieces of Fried Chicken(1.1  2.4  3.10):");
+                int i;
+                scanf("%d",&i);
+                if(i==1)
                 {
                     printf("1 Piece of FRIED CHICKEN\n");
                     printf("Please Enter the quantity:");
@@ -107,7 +124,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*85);
                 }
-                else if(pieces==4)
+                else if(i==2)
                 {
                     printf("4 Pieces of FRIED CHICKEN\n");
                     printf("Please Enter the quantity:");
@@ -115,7 +132,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*320);
                 }
-                else if(pieces==10)
+                else if(i==3)
                 {
                     printf("10 Pieces of FRIED CHICKEN\n");
                     printf("Please Enter the quantity:");
@@ -123,13 +140,21 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*790);
                 }
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 14:
             {
-                printf("How much plate of Grilled Chicken(quarter/half/full):");
-                scanf("%s,&plate_c");
-                if(plate_c=='quarter')
+                printf("How much plate of Grilled Chicken(1.quarter  2.half  3.full):");
+                int i;
+                scanf("%d",&i);
+                if(i==1)
                 {
                     printf("Quater plate of GRILLED CHICKEN\n");
                     printf("Please Enter the quantity:");
@@ -137,7 +162,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*70);
                 }
-                else if(plate_c=='half')
+                else if(i==2)
                 {
                     printf("Half plate of GRILLED CHICKEN\n");
                     printf("Please Enter the quantity:");
@@ -145,7 +170,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*140);
                 }
-                else if(plate_c=='full')
+                else if(i==3)
                 {
                     printf("Full plate of GRILLED CHICKEN\n");
                     printf("Please Enter the quantity:");
@@ -153,13 +178,21 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*250);
                 }
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 15:
             {
-                printf("How much plate of Noodles(half/full):");
-                scanf("%s,&plate_n");
-                if(plate_n=='half')
+                printf("How much plate of Noodles(1.half  2.full):");
+                int i;
+                scanf("%d,&i");
+                if(i==1)
                 {
                     printf("Half plate of NOODLES\n");
                     printf("Please Enter the quantity:");
@@ -167,7 +200,7 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*130);
                 }
-                else if(plate_n=='full')
+                else if(i==2)
                 {
                     printf("Full plate of NOODLES\n");
                     printf("Please Enter the quantity:");
@@ -175,13 +208,21 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*260);
                 }
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 16:
             {
-                printf("How much plate of Pasta(half/full):");
-                scanf("%s,&plate_p");
-                if(plate_p=='half')
+                printf("How much plate of Pasta(1.half  2.full):");
+                int i;
+                scanf("%d,&i");
+                if(i==1)
                 {
                     printf("Half plate of PASTA\n");
                     printf("Please Enter the quantity:");
@@ -189,13 +230,20 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*120);
                 }
-                else if(plate_p=='full')
+                else if(i==2)
                 {
                     printf("Full plate of PASTA\n");
                     printf("Please Enter the quantity:");
                     scanf("%d",&quantity);
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*240);
+                }
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
                 }
                 break;
             }
@@ -206,6 +254,13 @@ int order()
                 scanf("%d",&quantity);
                 p[count1].food_num+=quantity;
                 p[count1].cost+=(quantity*180);
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 18:
@@ -215,6 +270,13 @@ int order()
                 scanf("%d",&quantity);
                 p[count1].food_num+=quantity;
                 p[count1].cost+=(quantity*65);
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 19:
@@ -224,13 +286,21 @@ int order()
                 scanf("%d",&quantity);
                 p[count1].food_num+=quantity;
                 p[count1].cost+=(quantity*70);
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
+                }
                 break;
             }
             case 20:
             {
-                printf("Which amount of coke(250/500):");
-                scanf("%d",&amount);
-                if(amount==250)
+                printf("Which amount of coke(1.250  2.500):");
+                int i;
+                scanf("%d",&i);
+                if(i==1)
                 {
                     printf("250mg of COKE\n");
                     printf("Please Enter the quantity:");
@@ -238,13 +308,20 @@ int order()
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*20);
                 }
-                else if(amount==500)
+                else if(i==2)
                 {
                     printf("500mg of COKE\n");
                     printf("Please Enter the quantity:");
                     scanf("%d",&quantity);
                     p[count1].food_num+=quantity;
                     p[count1].cost+=(quantity*30);
+                }
+                printf("Do you want to order anything else?(y/n)\n");
+                scanf("%s",&option);
+                if(option=='y'||option=='Y')
+                {
+                    goto label;
+                    
                 }
                 break;
             }
@@ -254,12 +331,6 @@ int order()
                 goto label;
             }
         }
-    }
-    printf("Do you want to order anything else?(y/n)\n");
-    scanf("%s",&option);
-    if(option=='y'||option=='Y')
-    {
-        goto label;
     }
     printf("Number of Food ordered:%d\n",p[count1].food_num);
     printf("Thank you %s for your order.You bill is %d\n",p[count1].name,p[count1].cost);
